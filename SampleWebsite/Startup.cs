@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,7 +17,8 @@ namespace SampleWebsite
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IGreeter, Greeter>();
+            services.AddScoped<IGreeter, MyGreeter>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,11 +30,19 @@ namespace SampleWebsite
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigureRoute);
+
+            /*app.Run(async (context) =>
             {
                 await context.Response.WriteAsync(
                     greeter.GetMessageOfTheDay());
-            });
+            });*/
+        }
+
+        private void ConfigureRoute(IRouteBuilder obj)
+        {
+            obj.MapRoute("Default", "{controller=Student}/{action=Index}/{id?}");       
         }
     }
 }

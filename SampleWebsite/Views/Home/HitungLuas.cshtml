@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Hitung Luas</title>
+</head>
+<body>
+    <h2>Hitung Luas Segitiga</h2>
+    <form method="post" action="@Url.Action("HitungLuas")">
+        <label for="alas">Alas :</label><br />
+        <input type="text" name="alas" value="@ViewBag.Alas" /><br /><br />
+        <label for="tinggi">Tinggi :</label><br />
+        <input type="text" name="tinggi" value="@ViewBag.Tinggi" /><br /><br />
+        <label for="hasil">Hasil :</label><br />
+        <input type="text" name="hasil" readonly="readonly" value="@ViewBag.Hasil" /><br /><br />
+        <input type="submit" value="Submit" />
+    </form>
+
+</body>
+</html>

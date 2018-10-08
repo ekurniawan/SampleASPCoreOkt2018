@@ -8,5 +8,6 @@ namespace SampleWebsite
     public interface IGreeter
     {
         string GetMessageOfTheDay();
+        string HelloWorld();
     }
 }
