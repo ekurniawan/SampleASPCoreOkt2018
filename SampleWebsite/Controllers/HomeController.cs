@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SampleWebsite.Controllers
 {
-  
     public class HomeController : Controller
     {
         public IActionResult Index(string id,string alamat,string kota)
@@ -33,6 +32,8 @@ namespace SampleWebsite.Controllers
             ViewBag.Hasil = hasil;
             return View();
         }
+
+
 
         public IActionResult About()
         {

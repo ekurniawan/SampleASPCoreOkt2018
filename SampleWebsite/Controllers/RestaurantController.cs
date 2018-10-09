@@ -20,5 +20,18 @@ namespace SampleWebsite.Controllers
             var jsonResult = new JsonResult(model);
             return jsonResult;
         }
+
+        static List<Restaurant> listRest = new List<Restaurant>
+        {
+                new Restaurant {Id=1,Name="Sate Klathak"},
+                new Restaurant {Id=2,Name="Sate Buntel"},
+                new Restaurant{Id=3,Name="Bakmi Jawa Mbah Hadi"}
+        };
+
+        public IActionResult GetAll()
+        {
+            //ViewBag.ListRestaurant = listRest;
+            return View(listRest);
+        }
     }
 }
